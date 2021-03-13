@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 546400459467995808}
   m_Layer: 0
   m_Name: enemy1
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,14 +247,14 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       m_AttackTime: 0
-      m_SustainTime: 0.2
+      m_SustainTime: 0.02
       m_DecayTime: 0.7
       m_ScaleWithImpact: 1
       m_HoldForever: 0
     m_ImpactRadius: 100
     m_DirectionMode: 0
     m_DissipationMode: 2
-    m_DissipationDistance: 1000
+    m_DissipationDistance: 250
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 2048

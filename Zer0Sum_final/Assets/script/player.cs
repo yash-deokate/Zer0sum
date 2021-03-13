@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
@@ -20,7 +21,9 @@ public class player : MonoBehaviour
     bool isJumping;
     [SerializeField] public float jumpPower;
 
+    [SerializeField] public Image health;
 
+    private float healthamnt=10f;
     void Awake(){
 
         //referencing rigidbody of player
@@ -120,5 +123,11 @@ public class player : MonoBehaviour
         #endregion
     
     
+    }
+    void OnCollisionEnter2D(Collision2D col){
+        if(col.gameObject.tag.Equals("enemy")){
+            healthamnt-=1;
+            health.fillAmount=healthamnt/10;
+        }
     }
 }
