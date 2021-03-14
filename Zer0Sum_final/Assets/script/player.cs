@@ -8,7 +8,7 @@ public class player : MonoBehaviour
     private Rigidbody2D rigidbody;
     float horizontalValue;
     public float speed=1;
-    bool faceright=true;
+    public bool faceright=true;
     bool isRunning=false;
      float runSpeed = 1.5f;
     Animator animator;
@@ -23,7 +23,9 @@ public class player : MonoBehaviour
 
     [SerializeField] public Image health;
 
-    private float healthamnt=10f;
+   private float healthamnt=10f;
+    [SerializeField] Transform respawnPoint;
+
     void Awake(){
 
         //referencing rigidbody of player
@@ -32,12 +34,8 @@ public class player : MonoBehaviour
         animator=GetComponent<Animator>();
 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+ 
+  
     // Update is called once per frame
     void Update()
     {
@@ -75,8 +73,12 @@ public class player : MonoBehaviour
             }     
           
     }
+
+
+
     void Move(float dir,bool jump){
 
+    #region jump
     if(!isgrounded){
         animator.SetBool("jumping",true);
     }
@@ -91,9 +93,9 @@ public class player : MonoBehaviour
         }
         rigidbody.AddForce(new Vector2(0f,yforce));
     }
+    #endregion
 
-
-        #region move and run
+    #region move and run
 
 
         //move mech left right
@@ -121,13 +123,20 @@ public class player : MonoBehaviour
         // walk animation blend tree output
         animator.SetFloat("xvelocity",Mathf.Abs(rigidbody.velocity.x));
         #endregion
-    
-    
+     
     }
+
+
+
     void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.tag.Equals("enemy")){
             healthamnt-=1;
             health.fillAmount=healthamnt/10;
+            if(healthamnt==0){
+                transform.position=respawnPoint.position;
+                healthamnt=10;
+                health.fillAmount=healthamnt/10;
+            }
         }
     }
 }

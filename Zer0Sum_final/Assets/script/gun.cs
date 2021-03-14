@@ -39,13 +39,13 @@ public class gun : MonoBehaviour
 
 
     void shoot(){
-         GameObject instantiatedProjectile=Instantiate(bullet,shootPoint.position,shootPoint.localRotation);
+         GameObject instantiatedProjectile=Instantiate(bullet,shootPoint.position,shootPoint.rotation);
          float dir=player.transform.localScale.x;
-         if(dir==1){
+         if(dir>0){
              instantiatedProjectile.GetComponent<Rigidbody2D>().AddForce(instantiatedProjectile.transform.right*Bulletspeed*0.1f);
          }
-         else{
-             instantiatedProjectile.GetComponent<Rigidbody2D>().AddForce(instantiatedProjectile.transform.right*Bulletspeed*-1*0.1f);
+         else if(dir<0){
+             instantiatedProjectile.GetComponent<Rigidbody2D>().AddForce(-instantiatedProjectile.transform.right*Bulletspeed*0.1f);
          }
          Destroy(instantiatedProjectile,1);
     }
