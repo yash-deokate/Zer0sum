@@ -1681,6 +1681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7df81cc9d7cd8c4c8bf6037279011e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalValue: 0
   speed: 1.5
   faceright: 1
   groundcheckObject: {fileID: 1259477248}
@@ -1691,6 +1692,10 @@ MonoBehaviour:
   jumpPower: 1.4
   health: {fileID: 1621859676}
   respawnPoint: {fileID: 820018106}
+  knockBackLength: 0.5
+  knockBackForce: 5
+  canMove: 1
+  thrust: 50
 --- !u!95 &1221595491
 Animator:
   serializedVersion: 3
