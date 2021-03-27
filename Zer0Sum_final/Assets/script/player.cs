@@ -171,7 +171,13 @@ public class player : MonoBehaviour
             healthamnt-=1;
             health.fillAmount=healthamnt/10;
             // knckback on enemy attack
-            doKnockBack(transform.localScale.x);
+            if(col.transform.localScale.x==transform.localScale.x){
+                doKnockBack(-transform.localScale.x);
+            }
+            else if(col.transform.localScale.x!=transform.localScale.x){
+                doKnockBack(transform.localScale.x);
+            }
+            
 
             //on dying respawn and health bar update
             if(healthamnt==0){

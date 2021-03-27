@@ -46,11 +46,13 @@ public class enemy1 : MonoBehaviour
     void spriteFlip(float dir){
         if(dir<0.0f){
             //flip right;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            // transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.localScale=new Vector3(-1,1,1);
         }
         else if(dir>0.0f){
             //flip left;
-            transform.rotation = Quaternion.identity;
+            // transform.rotation = Quaternion.identity;
+            transform.localScale=new Vector3(1,1,1);
         }
     }
 
