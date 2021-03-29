@@ -7,10 +7,12 @@ public class gun : MonoBehaviour
     public GameObject bullet;
     public float Bulletspeed;
     public Transform shootPoint;
-    public Transform player;
+    public Transform players;
+     float amoAmount;
     public float fireRate;
     float readyforNextshot;
     Animator animator;
+    
   
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,8 @@ public class gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        amoAmount=player.bulletsAmount;
+        if (Input.GetButton("Fire1") && amoAmount>0)
         {
             animator.SetBool("firing",true);
             if(Time.time>readyforNextshot){
@@ -40,13 +43,15 @@ public class gun : MonoBehaviour
 
     void shoot(){
          GameObject instantiatedProjectile=Instantiate(bullet,shootPoint.position,shootPoint.rotation);
-         float dir=player.transform.localScale.x;
+         float dir=players.transform.localScale.x;
          if(dir>0){
              instantiatedProjectile.GetComponent<Rigidbody2D>().AddForce(instantiatedProjectile.transform.right*Bulletspeed*0.1f);
          }
          else if(dir<0){
              instantiatedProjectile.GetComponent<Rigidbody2D>().AddForce(-instantiatedProjectile.transform.right*Bulletspeed*0.1f);
          }
+         player.bulletsAmount=player.bulletsAmount-1;
          Destroy(instantiatedProjectile,1);
+
     }
 }

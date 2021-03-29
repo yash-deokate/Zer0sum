@@ -44,8 +44,10 @@ public class player : MonoBehaviour
     [SerializeField] float knockBackLength=0.5f;
     [SerializeField] float knockBackForce=15f;
     bool isHurt=false;
-
     public bool canMove=true;
+
+    //vars for gun 
+    public static float bulletsAmount;
 
    public float thrust;
 
@@ -185,8 +187,11 @@ public class player : MonoBehaviour
                 healthamnt=10;
                 health.fillAmount=healthamnt/10;
             }
-        }
-        
+        } 
+        if(col.gameObject.tag.Equals("amo")){
+            bulletsAmount=bulletsAmount+6;
+            Destroy(col.gameObject);
+        }   
     }
    
    // restoring animation after enemy attack
