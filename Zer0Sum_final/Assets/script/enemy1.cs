@@ -5,14 +5,14 @@ using UnityEngine;
 public class enemy1 : MonoBehaviour
 {
     [SerializeField] Transform target;
+    public float health;
     public float speed;
     public float lineOfSite;
-     Animator animator;
-      private Rigidbody2D rb;
-
-      Vector2 currentPosition;
-      Vector2 newPosition;
-      bool canWalk=true;
+    Animator animator;
+    private Rigidbody2D rb;
+    Vector2 currentPosition;
+    Vector2 newPosition;
+    bool canWalk=true;
     // Start is called before the first frame update
 
     void Awake(){
@@ -28,7 +28,11 @@ public class enemy1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(health<=0.0f){
+            canWalk=false;
+            animator.SetBool("dead",true);
+            Destroy(gameObject,0.6f);
+        }
     }
 
     void FixedUpdate(){
@@ -65,10 +69,11 @@ public class enemy1 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.tag.Equals("bullet")){
-            canWalk=false;
             Destroy(col.gameObject);
-            animator.SetBool("dead",true);
-            Destroy(gameObject,0.8f);
+            health-=1;
         }
     }
+
+    // knock back on enemy attack in given direction
+    
 }

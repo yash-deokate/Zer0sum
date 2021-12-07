@@ -7,7 +7,6 @@ public class sword : MonoBehaviour
     Animator animator;
     public float attackTime;
     public float startTimeAttack;
-
     public Transform attackLocation;
     public float attackRange;
     public LayerMask enemies;
@@ -34,12 +33,10 @@ public class sword : MonoBehaviour
             if( Input.GetButton("Fire1"))
             {
                 Collider2D[] damage = Physics2D.OverlapCircleAll( attackLocation.position, attackRange, enemies );
-
                 for (int i = 0; i < damage.Length; i++)
                 {
-                    enemyAnimator=damage[i].gameObject.GetComponentInChildren<Animator>();
-                    enemyAnimator.SetBool("dead",true);
-                    Destroy( damage[i].gameObject,0.7f);
+                    enemy1 other= damage[i].gameObject.GetComponent<enemy1>(); 
+                    other.health-=1.0f;
                 }
             }
             attackTime = startTimeAttack;
