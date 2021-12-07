@@ -18,12 +18,10 @@ public class sword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Fire1"))
+        if(Input.GetKeyDown("left ctrl"))
         {
             animator.SetTrigger("isAttacking");
         }
-        if(Input.GetButtonUp("Fire1")){
-            // animator.ResetTrigger("isAttacking");
-        }
+        
     }
 }
