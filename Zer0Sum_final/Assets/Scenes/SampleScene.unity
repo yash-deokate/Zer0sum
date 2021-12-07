@@ -568,6 +568,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 337970924608269941, guid: 3b0b603b33b77124f8703e40966e7013,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0b603b33b77124f8703e40966e7013, type: 3}
 --- !u!1 &779099461
@@ -1975,6 +1980,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc734875ad90cc4439ca737cff5702f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackTime: 0
+  startTimeAttack: 0
+  attackLocation: {fileID: 1499308498}
+  attackRange: 0.97
+  enemies:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!95 &1397270019
 Animator:
   serializedVersion: 3
@@ -2095,6 +2107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemy1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 337970924608269941, guid: 3b0b603b33b77124f8703e40966e7013,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0b603b33b77124f8703e40966e7013, type: 3}
@@ -7554,7 +7571,7 @@ PrefabInstance:
     - target: {fileID: 337970924608269941, guid: 3b0b603b33b77124f8703e40966e7013,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0b603b33b77124f8703e40966e7013, type: 3}

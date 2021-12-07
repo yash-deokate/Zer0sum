@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gun : MonoBehaviour
 {
-    public GameObject bullet;
+       public GameObject bullet;
     public float Bulletspeed;
     public Transform shootPoint;
     public Transform players;
@@ -21,6 +21,7 @@ public class gun : MonoBehaviour
     }
     void Awake(){
          animator=GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
