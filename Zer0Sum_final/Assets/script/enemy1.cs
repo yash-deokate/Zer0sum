@@ -70,10 +70,10 @@ public class enemy1 : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.tag.Equals("bullet")){
             Destroy(col.gameObject);
+            screenShakeController.instance.StartShake(0.3f,0.4f);
             health-=1;
         }
     }
 
-    // knock back on enemy attack in given direction
     
 }

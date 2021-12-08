@@ -37,6 +37,7 @@ public class sword : MonoBehaviour
                 {
                     enemy1 other= damage[i].gameObject.GetComponent<enemy1>(); 
                     other.health-=1.0f;
+                    screenShakeController.instance.StartShake(0.2f,0.3f);
                 }
             }
             attackTime = startTimeAttack;
